@@ -1,0 +1,10 @@
+/* ca cible la balise div */
+div {
+  /* background-color: red; */
+}
+/* je cible la classe applique ce css sur tout élément qui a la classe rounded */
+.rounded {}
+/* applique sur l'élément dont le id est myId */
+#myId {
+
+}
