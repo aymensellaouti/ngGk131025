@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./mini-word.component.css']
 })
 export class MiniWordComponent {
-
+  color = 'red';
+  fontFamily = 'garamond';
+  fontSize = 75;
 }
