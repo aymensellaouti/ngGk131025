@@ -6,16 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./color.component.css'],
 })
 export class ColorComponent {
-  defaultColor = 'red';
   // State
+  defaultColor = 'red';
   color = this.defaultColor;
 
   // Comportement
+  /**
+   * Permet de modifier la couleur du background de la div
+   * @param newColor : représente la nouvelle couleur à
+   * affecter
+   */
   changeColor(newColor: HTMLInputElement) {
     this.color = newColor.value;
     newColor.value = '';
   }
 
+  /**
+   * Cette méthode réinitialise la valeur de la couleur
+   * avec la valeur par défaut
+   */
   reset() {
     this.color = this.defaultColor;
   }
