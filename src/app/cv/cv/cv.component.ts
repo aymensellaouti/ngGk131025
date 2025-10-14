@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Cv } from '../model/cv.model';
+import { LoggerService } from 'src/app/services/logger.service';
+import { SayHelloService } from 'src/app/services/sayHello.service';
 
 @Component({
   selector: 'app-cv',
@@ -36,6 +38,12 @@ export class CvComponent {
       ''
     ),
   ];
-
   selectedCv: Cv | null = null;
+  loggerService = inject(LoggerService);
+  constructor(
+    private sayHelloService: SayHelloService,
+  ){
+    this.loggerService.logger('je fais expré de bosser :d');
+    this.sayHelloService.hello();
+  }
 }
