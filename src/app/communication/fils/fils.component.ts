@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-fils',
@@ -15,4 +15,10 @@ export class FilsComponent {
     }
   })
   messageDePapa = "je n'ai encore rien reçu";
+
+  @Output() dadResponse = new EventEmitter<string>();
+
+  sendMessage() {
+    this.dadResponse.emit("ok je le ferai si je peux garder la monnaie :D");
+  }
 }

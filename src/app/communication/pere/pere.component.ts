@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./pere.component.css']
 })
 export class PereComponent {
+  onResponse(message: string) {
+    alert(message);
+  }
 
 }
