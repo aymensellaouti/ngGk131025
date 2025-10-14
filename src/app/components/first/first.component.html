@@ -5,7 +5,10 @@
 <div appHighlight [in]="'lightblue'">test</div>
 <div appHighlight [out]="'lightblue'">test</div>
 
-<div (click)="showHide()" class="alert alert-secondary">
-  <p [hidden]="isHidden">Bonjour {{name}}</p>
+
+<input type="text" appRainbow>
+
+<div appRainbow (click)="showHide()" class="alert alert-secondary">
+  <p appRainbow [hidden]="isHidden">Bonjour {{name}}</p>
   <app-second/>
 </div>
