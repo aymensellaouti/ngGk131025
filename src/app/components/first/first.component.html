@@ -1,3 +1,10 @@
+
+<div appHighlight>test</div>
+<div appHighlight [in]="'pink'" [out]="'gold'">test</div>
+<div appHighlight [in]="'lightblue'" [out]="'green'">test</div>
+<div appHighlight [in]="'lightblue'">test</div>
+<div appHighlight [out]="'lightblue'">test</div>
+
 <div (click)="showHide()" class="alert alert-secondary">
   <p [hidden]="isHidden">Bonjour {{name}}</p>
   <app-second/>
