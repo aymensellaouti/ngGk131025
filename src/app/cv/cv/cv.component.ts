@@ -28,4 +28,6 @@ export class CvComponent {
       'rotating_card_profile2.png'
     ),
   ];
+
+  selectedCv: Cv | null = null;
 }
