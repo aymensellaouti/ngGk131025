@@ -9,6 +9,8 @@ import { ColorComponent } from './components/color/color.component';
 import { TwoComponent } from './components/two/two.component';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
+import { PereComponent } from './communication/pere/pere.component';
+import { FilsComponent } from './communication/fils/fils.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CardComponent } from './components/card/card.component';
     SecondComponent,
     ColorComponent,
     TwoComponent,
-    CardComponent
+    CardComponent,
+    PereComponent,
+    FilsComponent
   ],
   imports: [
     BrowserModule,
