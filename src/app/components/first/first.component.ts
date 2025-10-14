@@ -9,7 +9,7 @@ export class FirstComponent {
   //State
   name = "Angélique";
   isHidden = false;
-
+  date = new Date();
   constructor() {
     setTimeout(() => {
       this.name = 'Fabrice'

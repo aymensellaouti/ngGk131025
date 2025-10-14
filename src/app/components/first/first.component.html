@@ -1,4 +1,10 @@
 
+<div class="alert alert-warning">
+  {{date | date:'full' | uppercase}}
+  <p>{{1 | btc2usd | currency}}</p>
+  <p>{{1 | btc2usd:false }}</p>
+</div>
+
 <div appHighlight>test</div>
 <div appHighlight [in]="'pink'" [out]="'gold'">test</div>
 <div appHighlight [in]="'lightblue'" [out]="'green'">test</div>
