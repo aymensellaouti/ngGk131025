@@ -1,5 +1,7 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Cv } from '../model/cv.model';
+import { EmbaucheService } from '../services/embauche.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv-card',
@@ -7,12 +9,24 @@ import { Cv } from '../model/cv.model';
   styleUrls: ['./cv-card.component.css']
 })
 export class CvCardComponent implements OnInit, OnChanges {
+  @Input()
+  cv: Cv | null = null;
+  embaucheService = inject(EmbaucheService);
+  toastr = inject(ToastrService);
+  embaucher() {
+    if (this.cv) {
+      if (this.embaucheService.embaucher(this.cv)) {
+        this.toastr.success(`Le cv de ${this.cv.firstname} ${this.cv.name} a été prés sélectionné avec succès`)
+      } else {
+        this.toastr.warning(
+          `Le cv de ${this.cv.firstname} ${this.cv.name} est déjà prés sélectionné`
+        );
+      }
+    }
+  }
   ngOnChanges(changes: SimpleChanges): void {
     console.log({changes});
   }
   ngOnInit(): void {
-
   }
-  @Input()
-  cv: Cv | null = null;
 }

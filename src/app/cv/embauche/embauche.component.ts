@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Cv } from '../model/cv.model';
+import { EmbaucheService } from '../services/embauche.service';
 
 
 @Component({
@@ -8,5 +9,6 @@ import { Cv } from '../model/cv.model';
   styleUrls: ['./embauche.component.css'],
 })
 export class EmbaucheComponent {
-   public embauchees: Cv[] = [];
+  embaucheService = inject(EmbaucheService);
+  embauchees: Cv[] = this.embaucheService.getEmbauchees();
 }
