@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
 import { ColorComponent } from './components/color/color.component';
 import { TwoComponent } from './components/two/two.component';
-import { FormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
 import { PereComponent } from './communication/pere/pere.component';
 import { FilsComponent } from './communication/fils/fils.component';
@@ -49,14 +53,16 @@ import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
     Btc2usdPipe,
     DefaultImagePipe,
     TodoComponent,
-    WeekTodoComponent
+    WeekTodoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
