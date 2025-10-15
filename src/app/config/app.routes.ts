@@ -4,6 +4,7 @@ export const APP_ROUTES = {
   cv: 'cv',
   detailsCv: 'cv/:id',
   todo: 'todo',
+  login: 'login',
   card: 'card',
   word: 'word',
   second: ':quelqueChose',
