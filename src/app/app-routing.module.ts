@@ -8,6 +8,7 @@ import { MiniWordComponent } from './directives/mini-word/mini-word.component';
 import { CardComponent } from './components/card/card.component';
 import { SecondComponent } from './components/second/second.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
+import { NF404Component } from './components/nf404/nf404.component';
 
 const routes: Routes = [
   {path: APP_ROUTES.home, component: FirstComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: APP_ROUTES.card, component: CardComponent},
   {path: APP_ROUTES.word, component: MiniWordComponent},
   {path: APP_ROUTES.second, component: SecondComponent},
+  {path: '**', component: NF404Component},
 ];
 
 @NgModule({
