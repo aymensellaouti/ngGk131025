@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { APP_ROUTES } from 'src/app/config/app.routes';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
+  routes = APP_ROUTES;
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-second',
@@ -10,5 +11,12 @@ import { Component } from '@angular/core';
   styles: [``]
 })
 export class SecondComponent {
+  acr = inject(ActivatedRoute);
+  constructor() {
+    this.acr.snapshot.params['quelqueChose'];
+    this.acr.snapshot.paramMap.get('quelqueChose');
 
+    this.acr.snapshot.queryParams['page'];
+
+  }
 }
