@@ -1,8 +1,9 @@
 import {  inject, Injectable } from '@angular/core';
 import { Cv } from '../model/cv.model';
 import { Observable, Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { APP_API } from 'src/app/config/app-api.config';
+import { APP_CONSTANTES } from 'src/app/config/constantes.config';
 
 
 @Injectable({
@@ -42,7 +43,11 @@ export class CvService {
   }
   deleteCvById(id: number): Observable<Cv> {
     // Todo: Ajouter le token via un header (Authorization) ou un param (access_token)
-    return this.http.delete<Cv>(APP_API.cv + id);
+    const params = new HttpParams().set(APP_CONSTANTES.authParams, localStorage.getItem(APP_CONSTANTES.token) ?? '');
+    const headers = new HttpHeaders().set(APP_CONSTANTES.authHeaders, localStorage.getItem(APP_CONSTANTES.token) ?? '');
+    return this.http.delete<Cv>(APP_API.cv + id, {
+      headers
+    });
   }
 
   /**
