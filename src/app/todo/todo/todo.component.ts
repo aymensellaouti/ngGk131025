@@ -11,8 +11,15 @@ import { Todo } from "../model/todo";
 export class TodoComponent {
   todoService = inject(TodoService);
   todos = this.todoService.getTodos();
+  todosApi$ = this.todoService.getTodosFromApi();
   todo = new Todo();
-
+  constructor() {
+    this.todoService.getTodosFromApi().subscribe({
+      next:(todos) => {
+        console.log(todos);
+      }
+    });
+  }
   addTodo() {
     this.todoService.addTodo(this.todo);
     this.todo = new Todo();
@@ -20,4 +27,6 @@ export class TodoComponent {
   deleteTodo(todo: Todo) {
     this.todoService.deleteTodo(todo);
   }
+
+
 }

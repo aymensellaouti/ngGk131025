@@ -38,6 +38,7 @@ import { TestFormComponent } from './templateDrivenForm/test-form/test-form.comp
 import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
 import { SliderComponent } from "./rxjs/slider/slider.component";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { SliderComponent } from "./rxjs/slider/slider.component";
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
-    SliderComponent
+    SliderComponent,
+    HttpClientModule
 ],
   providers: [],
   bootstrap: [AppComponent],
