@@ -43,11 +43,9 @@ export class CvService {
   }
   deleteCvById(id: number): Observable<Cv> {
     // Todo: Ajouter le token via un header (Authorization) ou un param (access_token)
-    const params = new HttpParams().set(APP_CONSTANTES.authParams, localStorage.getItem(APP_CONSTANTES.token) ?? '');
-    const headers = new HttpHeaders().set(APP_CONSTANTES.authHeaders, localStorage.getItem(APP_CONSTANTES.token) ?? '');
-    return this.http.delete<Cv>(APP_API.cv + id, {
-      headers
-    });
+    // const params = new HttpParams().set(APP_CONSTANTES.authParams, localStorage.getItem(APP_CONSTANTES.token) ?? '');
+    // const headers = new HttpHeaders().set(APP_CONSTANTES.authHeaders, localStorage.getItem(APP_CONSTANTES.token) ?? '');
+    return this.http.delete<Cv>(APP_API.cv + id);
   }
 
   /**
