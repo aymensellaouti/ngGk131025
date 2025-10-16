@@ -10,12 +10,14 @@ import { SecondComponent } from './components/second/second.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './auth/login/login.component';
+import { AddCvComponent } from './cv/add-cv/add-cv.component';
 
 const routes: Routes = [
   {path: APP_ROUTES.home, component: FirstComponent},
   {path: APP_ROUTES.cv, component: CvComponent},
-  {path: APP_ROUTES.login, component: LoginComponent},
+  {path: APP_ROUTES.AddCv, component: AddCvComponent},
   {path: APP_ROUTES.detailsCv, component: DetailsCvComponent},
+  {path: APP_ROUTES.login, component: LoginComponent},
   {path: APP_ROUTES.todo, component: TodoComponent},
   {path: APP_ROUTES.card, component: CardComponent},
   {path: APP_ROUTES.word, component: MiniWordComponent},
