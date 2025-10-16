@@ -40,6 +40,7 @@ import { TestObservableComponent } from './rxjs/test-observable/test-observable.
 import { SliderComponent } from "./rxjs/slider/slider.component";
 import { HttpClientModule } from '@angular/common/http';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
     TestFormComponent,
     LoginComponent,
     TestObservableComponent,
-    AddCvComponent
+    AddCvComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,9 +81,9 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     SliderComponent,
-    HttpClientModule
-],
-  providers: [],
+    HttpClientModule,
+  ],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
