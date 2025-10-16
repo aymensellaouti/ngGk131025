@@ -5,7 +5,7 @@ import { SayHelloService } from 'src/app/services/sayHello.service';
 import { TodoService } from 'src/app/todo/service/todo.service';
 import { ToastrService } from 'ngx-toastr';
 import { CvService } from '../services/cv.service';
-import { Observable } from 'rxjs';
+import { catchError, EMPTY, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-cv',
@@ -19,7 +19,16 @@ export class CvComponent {
   cvService = inject(CvService);
   selectedCv$: Observable<Cv> = this.cvService.selectCv$;
   //selectedCv: Cv | null = null;
-  cvs: Cv[] = this.cvService.getCvs();
+  cvs$ = this.cvService.getCvs()
+    .pipe(
+     catchError((e) => {
+       this.toastr.error(
+         `Les données sont fictives merci de contacter l'admin`
+       );
+       return of(this.cvService.getFakeCvs())
+    })
+  );
+  //cvs: Cv[] = [];
   loggerService = inject(LoggerService);
   todoService = inject(TodoService);
   toastr = inject(ToastrService);
@@ -30,6 +39,13 @@ export class CvComponent {
     this.loggerService.logger('je fais expré de bosser :d');
     this.sayHelloService.hello();
     this.toastr.info('Bienvenu dans notre CvTech :D');
+    // this.cvService.getCvs().subscribe({
+    //   next: (cvs) => this.cvs = cvs,
+    //   error: (e) => {
+    //     this.cvs = this.cvService.getFakeCvs();
+    //     this.toastr.error(`Les données sont fictives merci de contacter l'admin`)
+    //   }
+    // })
     // this.cvService.selectCv$.subscribe({
     //   next: cv => {
     //     console.log({cv});
