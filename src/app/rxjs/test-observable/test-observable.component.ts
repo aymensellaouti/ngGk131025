@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { map, Observable, timer } from 'rxjs';
+import { filter, map, Observable, timer } from 'rxjs';
 
 @Component({
   selector: 'app-test-observable',
@@ -43,8 +43,10 @@ export class TestObservableComponent {
       this.myObservable$
         // 5 4 3 2 1
         .pipe(
-          map( valeur  => valeur * 3)
+          map( valeur  => valeur * 3),
           // 15 12 9 6 3
+          filter(valeur => (valeur % 2) == 0)
+          // 12 6
         )
         .subscribe({
           next: (data) => this.toastr.info('' + data),
