@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -82,6 +82,7 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     ToastrModule.forRoot(),
     SliderComponent,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],

@@ -11,18 +11,17 @@ import { APP_CONSTANTES } from 'src/app/config/constantes.config';
 })
 export class CvService {
   private cvs = [
-      new Cv(
-          1,
-          'Leherice',
-          'Angélique',
-          'Tech Lead',
-          '12457896',
-          18,
-          'rotating_card_profile.png'
-        ),
-        new Cv(2, 'COUJANDASSAMY', 'Fabrice', 'Dev', '12457899', 18, '    '),
-        new Cv(3, 'Sellaouti', 'Aymen', 'Enseignant', '88778877', 43, ''),
-
+    new Cv(
+      1,
+      'Leherice',
+      'Angélique',
+      'Tech Lead',
+      '12457896',
+      18,
+      'rotating_card_profile.png'
+    ),
+    new Cv(2, 'COUJANDASSAMY', 'Fabrice', 'Dev', '12457899', 18, '    '),
+    new Cv(3, 'Sellaouti', 'Aymen', 'Enseignant', '88778877', 43, ''),
   ];
   /**
    * C'est le subject des cvs sélectionnés
@@ -33,7 +32,6 @@ export class CvService {
    * Le flux des cvs sélectionnés
    */
   selectCv$ = this.#selectCvSubject$.asObservable();
-
 
   getCvs(): Observable<Cv[]> {
     return this.http.get<Cv[]>(APP_API.cv);
@@ -46,6 +44,10 @@ export class CvService {
     // const params = new HttpParams().set(APP_CONSTANTES.authParams, localStorage.getItem(APP_CONSTANTES.token) ?? '');
     // const headers = new HttpHeaders().set(APP_CONSTANTES.authHeaders, localStorage.getItem(APP_CONSTANTES.token) ?? '');
     return this.http.delete<Cv>(APP_API.cv + id);
+  }
+
+  addCv(cv: Partial<Cv>): Observable<Cv> {
+    return this.http.post<Cv>(APP_API.cv, cv);
   }
 
   /**
@@ -64,7 +66,7 @@ export class CvService {
    * @returns Cv | null
    */
   findCvById(id: number): Cv | null {
-    return this.cvs.find(cv => cv.id == id) ?? null;
+    return this.cvs.find((cv) => cv.id == id) ?? null;
   }
 
   /**
@@ -75,7 +77,7 @@ export class CvService {
    * @returns boolean
    */
   deleteCv(cv: Cv): boolean {
-        const index = this.cvs.indexOf(cv);
+    const index = this.cvs.indexOf(cv);
     if (index != -1) {
       this.cvs.splice(index, 1);
       return true;
