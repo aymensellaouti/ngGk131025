@@ -5,6 +5,7 @@ import { CvService } from "../services/cv.service";
 import { APP_ROUTES } from "src/app/config/app.routes";
 import { catchError, EMPTY } from "rxjs";
 import { ToastrService } from "ngx-toastr";
+import { AuthService } from "src/app/auth/service/auth.service";
 
 @Component({
   selector: 'app-details-cv',
@@ -23,6 +24,7 @@ export class DetailsCvComponent {
     })
   );
   router = inject(Router);
+  authService = inject(AuthService);
 
   constructor() {
     // const id = this.acr.snapshot.params['id'];

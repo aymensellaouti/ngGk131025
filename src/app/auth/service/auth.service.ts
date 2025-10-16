@@ -16,4 +16,10 @@ export class AuthService {
       })
     );
   }
+  logout() {
+    localStorage.removeItem(APP_CONSTANTES.token);
+  }
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem(APP_CONSTANTES.token);
+  }
 }
