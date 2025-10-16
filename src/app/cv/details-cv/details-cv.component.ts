@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { CvService } from "../services/cv.service";
 import { APP_ROUTES } from "src/app/config/app.routes";
 import { catchError, EMPTY } from "rxjs";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-details-cv',
@@ -13,6 +14,7 @@ import { catchError, EMPTY } from "rxjs";
 export class DetailsCvComponent {
   //cv: Cv | null = null;
   cvService = inject(CvService);
+  toastr = inject(ToastrService);
   acr = inject(ActivatedRoute);
   cv$ = this.cvService.getCvById(this.acr.snapshot.params['id']).pipe(
     catchError(e => {
@@ -31,7 +33,12 @@ export class DetailsCvComponent {
   }
 
   deleteCv(cv: Cv) {
-      this.cvService.deleteCv(cv);
-      this.router.navigate([APP_ROUTES.cv]);
+      this.cvService.deleteCvById(cv.id).subscribe({
+        next: () => this.router.navigate([APP_ROUTES.cv]),
+        error: e => {
+          console.log({e});
+          this.toastr.error('Une erreur est survenu mercie de contacter l admin')
+        }
+      });
   }
 }

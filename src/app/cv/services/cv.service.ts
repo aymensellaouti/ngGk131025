@@ -40,6 +40,10 @@ export class CvService {
   getCvById(id: number): Observable<Cv> {
     return this.http.get<Cv>(APP_API.cv + id);
   }
+  deleteCvById(id: number): Observable<Cv> {
+    // Todo: Ajouter le token via un header (Authorization) ou un param (access_token)
+    return this.http.delete<Cv>(APP_API.cv + id);
+  }
 
   /**
    * Retourne la liste des cvs

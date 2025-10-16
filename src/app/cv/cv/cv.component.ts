@@ -19,6 +19,7 @@ export class CvComponent {
   cvService = inject(CvService);
   selectedCv$: Observable<Cv> = this.cvService.selectCv$;
   //selectedCv: Cv | null = null;
+
   cvs$ = this.cvService.getCvs()
     .pipe(
      catchError((e) => {
