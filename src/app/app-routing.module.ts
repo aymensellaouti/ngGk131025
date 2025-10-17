@@ -14,7 +14,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authGuard } from './auth/guards/auth.guard';
 import { CustomPreloadingStrategy } from './preloading strategies/custom.preloading-strategy';
 
-const routes: Routes = [
+export const routes: Routes = [
   {path: APP_ROUTES.home, component: FirstComponent},
   {path: APP_ROUTES.login, component: LoginComponent},
   {
