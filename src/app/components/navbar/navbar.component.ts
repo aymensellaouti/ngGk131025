@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { APP_ROUTES } from 'src/app/config/app.routes';
-import { NgIf } from '@angular/common';
+
 
 @Component({
     selector: 'app-navbar',
@@ -10,10 +10,9 @@ import { NgIf } from '@angular/common';
     styleUrls: ['./navbar.component.css'],
     standalone: true,
     imports: [
-        RouterLink,
-        RouterLinkActive,
-        NgIf,
-    ],
+    RouterLink,
+    RouterLinkActive
+],
 })
 export class NavbarComponent {
   routes = APP_ROUTES;

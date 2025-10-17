@@ -9,7 +9,7 @@ import { filter } from 'rxjs';
 import { APP_CONSTANTES } from 'src/app/config/constantes.config';
 import { uniqueCinValidator } from 'src/app/validators/unique-cin.validator';
 import { ageCinValidator } from 'src/app/validators/ageCin.validator';
-import { NgIf } from '@angular/common';
+
 
 @Component({
     selector: 'app-add-cv',
@@ -17,10 +17,9 @@ import { NgIf } from '@angular/common';
     styleUrls: ['./add-cv.component.css'],
     standalone: true,
     imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        NgIf,
-    ],
+    FormsModule,
+    ReactiveFormsModule
+],
 })
 export class AddCvComponent implements OnDestroy {
   formBuilder = inject(FormBuilder);

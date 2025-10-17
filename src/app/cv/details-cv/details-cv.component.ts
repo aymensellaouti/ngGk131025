@@ -6,7 +6,7 @@ import { APP_ROUTES } from "src/app/config/app.routes";
 import { catchError, EMPTY } from "rxjs";
 import { ToastrService } from "ngx-toastr";
 import { AuthService } from "src/app/auth/service/auth.service";
-import { NgIf, AsyncPipe } from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 import { DefaultImagePipe } from "../pipes/default-image.pipe";
 
 @Component({
@@ -15,10 +15,9 @@ import { DefaultImagePipe } from "../pipes/default-image.pipe";
     styleUrls: ['./details-cv.component.css'],
     standalone: true,
     imports: [
-        NgIf,
-        AsyncPipe,
-        DefaultImagePipe,
-    ],
+    AsyncPipe,
+    DefaultImagePipe
+],
 })
 export class DetailsCvComponent {
   //cv: Cv | null = null;

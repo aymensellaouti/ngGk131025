@@ -1,5 +1,7 @@
 <div class="row" >
-  <div class="col" *ngIf="cvs$ | async as cvs"><app-list [cvs]="cvs"/></div>
+  @if (cvs$ | async; as cvs) {
+    <div class="col"><app-list [cvs]="cvs"/></div>
+  }
   <div class="col"><app-cv-card [cv]="selectedCv$ | async" /></div>
 </div>
 <app-embauche/>

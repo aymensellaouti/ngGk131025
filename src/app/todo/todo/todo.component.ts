@@ -1,7 +1,7 @@
 import { Component, inject } from "@angular/core";
 import { TodoService } from "../service/todo.service";
 import { Todo } from "../model/todo";
-import { NgFor, AsyncPipe, JsonPipe } from "@angular/common";
+import { AsyncPipe, JsonPipe } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
 @Component({
@@ -10,7 +10,7 @@ import { FormsModule } from "@angular/forms";
     styleUrls: ['./todo.component.css'],
     providers: [TodoService],
     standalone: true,
-    imports: [NgFor, FormsModule, AsyncPipe, JsonPipe]
+    imports: [FormsModule, AsyncPipe, JsonPipe]
 })
 export class TodoComponent {
   todoService = inject(TodoService);
