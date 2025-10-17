@@ -15,9 +15,6 @@ import { authGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
   {path: APP_ROUTES.home, component: FirstComponent},
-  {path: APP_ROUTES.cv, component: CvComponent},
-  {path: APP_ROUTES.AddCv, component: AddCvComponent, canActivate: [authGuard]},
-  {path: APP_ROUTES.detailsCv, component: DetailsCvComponent},
   {path: APP_ROUTES.login, component: LoginComponent},
   {path: APP_ROUTES.card, component: CardComponent},
   {path: APP_ROUTES.word, component: MiniWordComponent},
