@@ -39,6 +39,21 @@ export class CvService {
   getCvById(id: number): Observable<Cv> {
     return this.http.get<Cv>(APP_API.cv + id);
   }
+
+  getCvsByName(name: string): Observable<Cv[]> {
+    const params = new HttpParams().set(
+      'filter',
+      `{"where":{"name":{"like":"%${name}%"}}}`
+    );
+    return this.http.get<Cv[]>(APP_API.cv, { params });
+  }
+  getCvsByProperty(property: string, value: string): Observable<Cv[]> {
+    const params = new HttpParams().set(
+      'filter',
+      `{"where":{"${property}":"${value}"}}`
+    );
+    return this.http.get<Cv[]>(APP_API.cv, { params });
+  }
   deleteCvById(id: number): Observable<Cv> {
     // Todo: Ajouter le token via un header (Authorization) ou un param (access_token)
     // const params = new HttpParams().set(APP_CONSTANTES.authParams, localStorage.getItem(APP_CONSTANTES.token) ?? '');

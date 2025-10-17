@@ -22,7 +22,7 @@ export class AddCvComponent implements OnDestroy {
     {
       name: ['', { validators: Validators.required, updateOn: 'change' }],
       firstname: ['', Validators.required],
-      path: ['', {nonNullable: false}],
+      path: ['', { nonNullable: false }],
       job: ['', Validators.required],
       cin: [
         '',
@@ -51,13 +51,12 @@ export class AddCvComponent implements OnDestroy {
     //   next: (valeur) => console.log(valeur),
     // });
     this.age.valueChanges.subscribe({
-      next: age => {
-        if (age <18) {
+      next: (age) => {
+        if (age < 18) {
           this.path?.disable();
           this.path?.setValue('');
-        }
-        else this.path?.enable();
-      }
+        } else this.path?.enable();
+      },
     });
 
     // this.form.statusChanges.pipe(
@@ -79,13 +78,13 @@ export class AddCvComponent implements OnDestroy {
   ngOnDestroy(): void {
     if (this.form.valid) {
       localStorage.setItem(
-                  APP_CONSTANTES.addCvForm,
-                  JSON.stringify(this.form.value)
-                );
+        APP_CONSTANTES.addCvForm,
+        JSON.stringify(this.form.value)
+      );
     }
   }
   addCv() {
-   // console.log({ value: this.form.getRawValue() });
+    // console.log({ value: this.form.getRawValue() });
 
     this.cvService.addCv(this.form.getRawValue() as Cv).subscribe({
       next: (cv) => {
