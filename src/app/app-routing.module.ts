@@ -16,6 +16,12 @@ import { authGuard } from './auth/guards/auth.guard';
 const routes: Routes = [
   {path: APP_ROUTES.home, component: FirstComponent},
   {path: APP_ROUTES.login, component: LoginComponent},
+  {
+    path: APP_ROUTES.todo,
+    loadChildren: () => import('./todo/todo.module').then(
+      m => m.TodoModule
+    )
+  },
   {path: APP_ROUTES.card, component: CardComponent},
   {path: APP_ROUTES.word, component: MiniWordComponent},
   {path: APP_ROUTES.second, component: SecondComponent},

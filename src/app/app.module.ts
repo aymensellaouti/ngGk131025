@@ -29,7 +29,6 @@ import { TestObservableComponent } from './rxjs/test-observable/test-observable.
 import { SliderComponent } from "./rxjs/slider/slider.component";
 import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
-import { TodoModule } from './todo/todo.module';
 import { CvModule } from './cv/cv.module';
 
 @NgModule({
@@ -59,7 +58,6 @@ import { CvModule } from './cv/cv.module';
   ],
   imports: [
     BrowserModule,
-    TodoModule,
     CvModule,
     AppRoutingModule,
     FormsModule,
