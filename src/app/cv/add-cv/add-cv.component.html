@@ -14,8 +14,10 @@
   </div>
   Job: <input type="text" class="form-control" formControlName="job" /> Path:
   <input type="text" class="form-control" formControlName="path" />
-
-  <button [disabled]="form.invalid" class="btn btn-primary" (click)="addCv()">
+    <div *ngIf="form.errors && form.errors['ageCin']" class="alert alert-danger">
+      {{form.errors['ageCin']}}
+    </div>
+  <button [disabled]="form.invalid" class="btn btn-primary m-1" (click)="addCv()">
     add cv
   </button>
 </form>
