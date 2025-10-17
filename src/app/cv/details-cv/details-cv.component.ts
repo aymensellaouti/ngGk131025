@@ -19,7 +19,7 @@ export class DetailsCvComponent {
   acr = inject(ActivatedRoute);
   cv$ = this.cvService.getCvById(this.acr.snapshot.params['id']).pipe(
     catchError(e => {
-      this.router.navigate([APP_ROUTES.cv]);
+      this.router.navigate([APP_ROUTES.cvPrefix]);
       return EMPTY;
     })
   );
@@ -36,7 +36,7 @@ export class DetailsCvComponent {
 
   deleteCv(cv: Cv) {
       this.cvService.deleteCvById(cv.id).subscribe({
-        next: () => this.router.navigate([APP_ROUTES.cv]),
+        next: () => this.router.navigate([APP_ROUTES.cvPrefix]),
         error: e => {
           console.log({e});
           this.toastr.error('Une erreur est survenu mercie de contacter l admin')

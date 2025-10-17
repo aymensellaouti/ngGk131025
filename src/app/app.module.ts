@@ -58,7 +58,6 @@ import { CvModule } from './cv/cv.module';
   ],
   imports: [
     BrowserModule,
-    CvModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module

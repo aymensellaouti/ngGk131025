@@ -1,9 +1,12 @@
 export const APP_ROUTES = {
   // cv
   home: '',
-  cv: 'cv',
-  AddCv: 'cv/add',
-  detailsCv: 'cv/:id',
+  cvPrefix: 'cv',
+  // Préféxié en LazyLoading avec 'cv'
+  cv: '',
+  AddCv: 'add',
+  detailsCv: ':id',
+
   todo: 'todo',
   login: 'login',
   card: 'card',

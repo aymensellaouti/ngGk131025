@@ -22,6 +22,12 @@ const routes: Routes = [
       m => m.TodoModule
     )
   },
+  {
+    path: APP_ROUTES.cvPrefix,
+    loadChildren: () => import('./cv/cv.module').then(
+      m => m.CvModule
+    )
+  },
   {path: APP_ROUTES.card, component: CardComponent},
   {path: APP_ROUTES.word, component: MiniWordComponent},
   {path: APP_ROUTES.second, component: SecondComponent},
