@@ -27,46 +27,37 @@ import { TestFormComponent } from './templateDrivenForm/test-form/test-form.comp
 import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
 import { SliderComponent } from "./rxjs/slider/slider.component";
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { CvModule } from './cv/cv.module';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    FirstComponent,
-    SecondComponent,
-    ColorComponent,
-    TwoComponent,
-    CardComponent,
-    PereComponent,
-    FilsComponent,
-    //cv
-
-
-    NgstyleComponent,
-    MiniWordComponent,
-    AmpouleComponent,
-    HighlightDirective,
-    RainbowDirective,
-    Btc2usdPipe,
-    NavbarComponent,
-    NF404Component,
-    TestFormComponent,
-    LoginComponent,
-    TestObservableComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(),
-    SliderComponent,
-    HttpClientModule,
-    ReactiveFormsModule
-  ],
-  providers: [AuthInterceptorProvider],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        FirstComponent,
+        SecondComponent,
+        ColorComponent,
+        TwoComponent,
+        CardComponent,
+        PereComponent,
+        FilsComponent,
+        //cv
+        NgstyleComponent,
+        MiniWordComponent,
+        AmpouleComponent,
+        HighlightDirective,
+        RainbowDirective,
+        Btc2usdPipe,
+        NavbarComponent,
+        NF404Component,
+        TestFormComponent,
+        LoginComponent,
+        TestObservableComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        BrowserAnimationsModule, // required animations module
+        ToastrModule.forRoot(),
+        SliderComponent,
+        ReactiveFormsModule], providers: [AuthInterceptorProvider, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
