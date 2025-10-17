@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FirstComponent } from './components/first/first.component';
 import { APP_ROUTES } from './config/app.routes';
 import { CvComponent } from './cv/cv/cv.component';
@@ -12,6 +12,7 @@ import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authGuard } from './auth/guards/auth.guard';
+import { CustomPreloadingStrategy } from './preloading strategies/custom.preloading-strategy';
 
 const routes: Routes = [
   {path: APP_ROUTES.home, component: FirstComponent},
@@ -23,6 +24,9 @@ const routes: Routes = [
     )
   },
   {
+    data: {
+      preload: true
+    },
     path: APP_ROUTES.cvPrefix,
     loadChildren: () => import('./cv/cv.module').then(
       m => m.CvModule
@@ -35,7 +39,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: CustomPreloadingStrategy
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
