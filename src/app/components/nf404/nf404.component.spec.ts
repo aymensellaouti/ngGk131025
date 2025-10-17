@@ -8,8 +8,8 @@ describe('NF404Component', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NF404Component]
-    });
+    imports: [NF404Component]
+});
     fixture = TestBed.createComponent(NF404Component);
     component = fixture.componentInstance;
     fixture.detectChanges();

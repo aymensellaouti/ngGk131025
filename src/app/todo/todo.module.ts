@@ -7,20 +7,17 @@ import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 
 @NgModule({
-  // Quels sont mes composants, directives et pipes
-  declarations: [
-    TodoComponent,
-    WeekTodoComponent
-  ],
-  // Quels sont les modules qui me sont nécessaires
-  imports: [
-    TodoRoutingModule,
-    FormsModule,
-    CommonModule
-  ],
-  // Mes providers
-  providers: [],
-  // Ce que je veux partager avec les autres
-  exports: []
+    // Quels sont les modules qui me sont nécessaires
+    imports: [
+        TodoRoutingModule,
+        FormsModule,
+        CommonModule,
+        TodoComponent,
+        WeekTodoComponent
+    ],
+    // Mes providers
+    providers: [],
+    // Ce que je veux partager avec les autres
+    exports: []
 })
 export class TodoModule {}

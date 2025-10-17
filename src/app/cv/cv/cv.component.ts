@@ -6,13 +6,25 @@ import { TodoService } from 'src/app/todo/service/todo.service';
 import { ToastrService } from 'ngx-toastr';
 import { CvService } from '../services/cv.service';
 import { catchError, EMPTY, Observable, of } from 'rxjs';
+import { NgIf, AsyncPipe } from '@angular/common';
+import { ListComponent } from '../list/list.component';
+import { CvCardComponent } from '../cv-card/cv-card.component';
+import { EmbaucheComponent } from '../embauche/embauche.component';
 
 @Component({
-  selector: 'app-cv',
-  templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.css'],
-  // Pour la meme dépendance je peux avoir +eurs instances
-  providers: [],
+    selector: 'app-cv',
+    templateUrl: './cv.component.html',
+    styleUrls: ['./cv.component.css'],
+    // Pour la meme dépendance je peux avoir +eurs instances
+    providers: [],
+    standalone: true,
+    imports: [
+        NgIf,
+        ListComponent,
+        CvCardComponent,
+        EmbaucheComponent,
+        AsyncPipe,
+    ],
 })
 export class CvComponent {
   // State de notre composant

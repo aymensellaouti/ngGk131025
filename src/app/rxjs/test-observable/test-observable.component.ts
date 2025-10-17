@@ -1,11 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { filter, map, Observable, timer } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-test-observable',
-  templateUrl: './test-observable.component.html',
-  styleUrls: ['./test-observable.component.css'],
+    selector: 'app-test-observable',
+    templateUrl: './test-observable.component.html',
+    styleUrls: ['./test-observable.component.css'],
+    standalone: true,
+    imports: [AsyncPipe],
 })
 export class TestObservableComponent {
   myObservable$: Observable<number>;

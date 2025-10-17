@@ -31,9 +31,14 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { CvModule } from './cv/cv.module';
 
-@NgModule({ declarations: [
-        AppComponent,
-        FirstComponent,
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        BrowserAnimationsModule, // required animations module
+        ToastrModule.forRoot(),
+        SliderComponent,
+        ReactiveFormsModule, FirstComponent,
         SecondComponent,
         ColorComponent,
         TwoComponent,
@@ -51,13 +56,5 @@ import { CvModule } from './cv/cv.module';
         NF404Component,
         TestFormComponent,
         LoginComponent,
-        TestObservableComponent,
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        BrowserAnimationsModule, // required animations module
-        ToastrModule.forRoot(),
-        SliderComponent,
-        ReactiveFormsModule], providers: [AuthInterceptorProvider, provideHttpClient(withInterceptorsFromDi())] })
+        TestObservableComponent], providers: [AuthInterceptorProvider, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}

@@ -8,8 +8,8 @@ describe('AmpouleComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AmpouleComponent]
-    });
+    imports: [AmpouleComponent]
+});
     fixture = TestBed.createComponent(AmpouleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

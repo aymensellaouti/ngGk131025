@@ -2,13 +2,14 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-second',
-  template: `
+    selector: 'app-second',
+    template: `
     <div class="alert alert-dark">
       second Component
     </div>
   `,
-  styles: [``]
+    styles: [``],
+    standalone: true
 })
 export class SecondComponent {
   acr = inject(ActivatedRoute);

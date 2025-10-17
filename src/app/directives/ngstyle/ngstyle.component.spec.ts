@@ -8,8 +8,8 @@ describe('NgstyleComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NgstyleComponent]
-    });
+    imports: [NgstyleComponent]
+});
     fixture = TestBed.createComponent(NgstyleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
