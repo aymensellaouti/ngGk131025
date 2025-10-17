@@ -26,6 +26,8 @@ import { EmbaucheComponent } from '../embauche/embauche.component';
 ],
 })
 export class CvComponent {
+  private sayHelloService = inject(SayHelloService);
+
   // State de notre composant
   cvService = inject(CvService);
   selectedCv$: Observable<Cv> = this.cvService.selectCv$;
@@ -44,9 +46,7 @@ export class CvComponent {
   loggerService = inject(LoggerService);
   todoService = inject(TodoService);
   toastr = inject(ToastrService);
-  constructor(
-    private sayHelloService: SayHelloService
-  ) //  private photocopieuse: Photcopieuse
+  constructor() //  private photocopieuse: Photcopieuse
   {
     this.loggerService.logger('je fais expré de bosser :d');
     this.sayHelloService.hello();
