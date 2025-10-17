@@ -28,8 +28,6 @@ import { Btc2usdPipe } from './pipes/btc2usd.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { LoggerService } from './services/logger.service';
 import { SayHelloService } from './services/sayHello.service';
-import { TodoComponent } from './todo/todo/todo.component';
-import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
@@ -41,6 +39,7 @@ import { SliderComponent } from "./rxjs/slider/slider.component";
 import { HttpClientModule } from '@angular/common/http';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { TodoModule } from './todo/todo.module';
 
 @NgModule({
   declarations: [
@@ -63,8 +62,6 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     RainbowDirective,
     Btc2usdPipe,
     DefaultImagePipe,
-    TodoComponent,
-    WeekTodoComponent,
     EmbaucheComponent,
     NavbarComponent,
     DetailsCvComponent,
@@ -76,6 +73,7 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
   ],
   imports: [
     BrowserModule,
+    TodoModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module

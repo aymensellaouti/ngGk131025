@@ -19,7 +19,6 @@ const routes: Routes = [
   {path: APP_ROUTES.AddCv, component: AddCvComponent, canActivate: [authGuard]},
   {path: APP_ROUTES.detailsCv, component: DetailsCvComponent},
   {path: APP_ROUTES.login, component: LoginComponent},
-  {path: APP_ROUTES.todo, component: TodoComponent},
   {path: APP_ROUTES.card, component: CardComponent},
   {path: APP_ROUTES.word, component: MiniWordComponent},
   {path: APP_ROUTES.second, component: SecondComponent},
